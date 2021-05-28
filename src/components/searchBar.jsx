@@ -9,7 +9,7 @@ export default class SearchBar extends Component {
 
   render() {
     return (
-      <input type="text" className="form-search form-control" onChange={this.handleChange} />
+      <input type="text" placeholder="Search Here!" className="form-search form-control" onChange={this.handleChange} />
     );
   }
 }

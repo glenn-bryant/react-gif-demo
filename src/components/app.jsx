@@ -14,8 +14,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gifId: "HuVCpmfKheI2Q",
-      gifIds: ["WuGSL4LFUMQU", "HuVCpmfKheI2Q", "u6uAu3yyDNqRq"]
+      gifId: "l41lIsOThQpma23wA",
+      gifIds: ["l41lIsOThQpma23wA", "J2CLvzhay29UwhkAKT", "26BkNIqbzQIXdUi08"]
     };
   }
 
@@ -27,7 +27,7 @@ export default class App extends Component {
 
   changeGifList = (keyword) => {
     giphy.search({
-      q: keyword,
+      q: [keyword, "drake"],
       rating: 'g',
       limit: 10
     }, (err, res) => {

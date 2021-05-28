@@ -1,7 +1,11 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
-  font-family: Helvetica;
+  background-image: linear-gradient( #154BB4, #C4C5DB);
+  background-repeat: no-repeat;
+  color: white;
+  font-family: "roboto";
+  text-align: center;
 }
 
 #root > div {
@@ -79,3 +83,4 @@ body {
 .clicked {
   color: red;
 }
+
