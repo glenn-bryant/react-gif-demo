@@ -6,9 +6,22 @@ import SearchBar from "./searchBar";
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gifId: "HuVCpmfKheI2Q",
+      gifIds: ["WuGSL4LFUMQU", "HuVCpmfKheI2Q", "u6uAu3yyDNqRq"]
+    };
+  }
+
+  changeSelectedGif = (newGifId) => {
+    this.setState({
+      gifId: newGifId
+    });
+  }
+
   render() {
-    const gifId = "13HgwGsXF0aiGY";
-    const gifIds= ["WuGSL4LFUMQU", "HuVCpmfKheI2Q", "u6uAu3yyDNqRq"]
+    const { gifId, gifIds } = this.state;
     return (
       <div>
         <div className="left-scene">
@@ -18,7 +31,7 @@ export default class App extends Component {
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifIds={gifIds} />
+          <GifList gifIds={gifIds} changeSelectedGif={this.changeSelectedGif} />
         </div>
       </div>
     );
