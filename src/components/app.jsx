@@ -4,6 +4,11 @@ import Gif from "./gif";
 import GifList from "./gifList";
 import SearchBar from "./searchBar";
 
+const giphy = require('giphy-api')({
+  apiKey: 'RKi01VdLXr15fX1qvVWT1tg3zMwHVfb4',
+  https: true
+});
+
 // eslint-disable-next-line react/prefer-stateless-function
 export default class App extends Component {
   constructor(props) {
@@ -20,12 +25,22 @@ export default class App extends Component {
     });
   }
 
+  changeGifList = (keyword) => {
+    giphy.search({
+      q: keyword,
+      rating: 'g',
+      limit: 10
+    }, (err, res) => {
+      this.setState({ gifIds: res.data.map((gif) => gif.id) });
+    });
+  }
+
   render() {
     const { gifId, gifIds } = this.state;
     return (
       <div>
         <div className="left-scene">
-          <SearchBar />
+          <SearchBar changeGifList={this.changeGifList} />
           <div className="selected-gif">
             <Gif gifId={gifId} />
           </div>
